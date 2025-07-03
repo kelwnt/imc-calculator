@@ -31,9 +31,3 @@ A aplicação consiste em uma **calculadora de IMC (Índice de Massa Corporal)**
    ```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
 
-Comando para instalar as dependencias: npm install
-
-Comando para iniciar o projeto: npx expo start
-
-Ou seja preferir testar direto do PC: npx expo start --tunnel --reset-cache
-
