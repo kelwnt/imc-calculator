@@ -11,20 +11,19 @@ export default function IndexScreen() {
 
   const calcularIMC = () => {
     const pesoNum = parseFloat(peso.replace(',', '.'));
-    const alturaNum = parseFloat(altura.replace(',', '.'));
+    const alturaCm = parseFloat(altura.replace(',', '.'));
 
-      // Validação dos campos
     const pesoValido = !isNaN(pesoNum);
-    const alturaValida = !isNaN(alturaNum) && alturaNum > 0;
+    const alturaValida = !isNaN(alturaCm) && alturaCm > 0;
 
     setErroPeso(!pesoValido);
     setErroAltura(!alturaValida);
-  
-    if (!isNaN(pesoNum) && !isNaN(alturaNum) && alturaNum > 0) {
-      const imc = pesoNum / (alturaNum * alturaNum);
+
+    if (pesoValido && alturaValida) {
+      const alturaMetros = alturaCm / 100; // conversão cm -> m
+      const imc = pesoNum / (alturaMetros * alturaMetros);
       setResultado(imc);
-  
-      // Classificação
+
       let classificacaoTexto = '';
       if (imc < 18.5) {
         classificacaoTexto = 'Abaixo do normal';
@@ -39,7 +38,7 @@ export default function IndexScreen() {
       } else if (imc >= 40.0) {
         classificacaoTexto = 'Obesidade grau III';
       }
-  
+
       setClassificacao(classificacaoTexto);
     } else {
       setResultado(null);
@@ -48,15 +47,11 @@ export default function IndexScreen() {
   };
 
   const limparEntrada = (texto: string): string => {
-    // Remove tudo que não for número, vírgula ou ponto
     let limpo = texto.replace(/[^0-9.,]/g, '');
-  
-    // Se tiver mais de um ponto ou vírgula, remove os extras
     const partes = limpo.split(/[,\.]/);
     if (partes.length > 2) {
-      limpo = partes[0] + '.' + partes[1]; // Mantém só um separador
+      limpo = partes[0] + '.' + partes[1];
     }
-  
     return limpo;
   };
 
@@ -64,7 +59,7 @@ export default function IndexScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Calculadora de IMC</Text>
 
-      {/* Campo de Peso */}
+      {/* Peso */}
       <View style={styles.inputRow}>
         <Text style={styles.label}>Peso (kg):</Text>
         <TextInput
@@ -74,29 +69,27 @@ export default function IndexScreen() {
           value={peso}
           onChangeText={(text) => {
             setPeso(text);
-            if (erroPeso) setErroPeso(false); // limpa erro ao digitar
+            if (erroPeso) setErroPeso(false);
           }}
         />
-        {erroPeso && <Text style={styles.textoErro}>Digite um peso válido</Text>}
       </View>
-      
+      {erroPeso && <Text style={styles.textoErro}>Digite um peso válido</Text>}
 
-      {/* Campo de Altura */}
+      {/* Altura em cm */}
       <View style={styles.inputRow}>
-        <Text style={styles.label}>Altura (m):</Text>
+        <Text style={styles.label}>Altura (cm):</Text>
         <TextInput
           style={[styles.input, erroAltura && styles.inputErro]}
-          placeholder="Ex: 1.75"
+          placeholder="Ex: 175"
           keyboardType="numeric"
           value={altura}
           onChangeText={(text) => {
             setAltura(text);
-            if (erroAltura) setErroAltura(false); // limpa erro ao digitar
+            if (erroAltura) setErroAltura(false);
           }}
         />
-        {erroPeso && <Text style={styles.textoErro}>Digite altura válida</Text>}
       </View>
-      
+      {erroAltura && <Text style={styles.textoErro}>Digite uma altura válida</Text>}
 
       <TouchableOpacity style={styles.button} onPress={calcularIMC}>
         <Text style={styles.buttonText}>Calcular IMC</Text>
@@ -104,17 +97,11 @@ export default function IndexScreen() {
 
       {resultado !== null && (
         <>
-          <Text style={styles.resultado}>
-            Seu IMC é: {resultado.toFixed(2)}
-          </Text>
-          <Text style={styles.classificacao}>
-            Classificação: {classificacao}
-          </Text>
+          <Text style={styles.resultado}>Seu IMC é: {resultado.toFixed(2)}</Text>
+          <Text style={styles.classificacao}>Classificação: {classificacao}</Text>
         </>
       )}
-      
     </View>
-    
   );
 }
 
