@@ -1,51 +1,39 @@
-# Welcome to your Expo app 👋
+# Calculadora de IMC - React Native (Expo)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este projeto tem como objetivo o aprimoramento de habilidades em desenvolvimento mobile utilizando **React Native** com **Expo**, além de proporcionar uma introdução prática à criação e exportação de arquivos APK. O ambiente de desenvolvimento utilizado inclui **Node.js** e o editor de código **Visual Studio Code (VSCode)**.
 
-## Get started
+## 📱 Sobre o Aplicativo
 
-1. Install dependencies
+A aplicação consiste em uma **calculadora de IMC (Índice de Massa Corporal)**, na qual o usuário informa seu peso e altura, e recebe uma classificação relacionada à sua saúde corporal, como:
 
+- Abaixo do peso
+- Peso ideal
+- Sobrepeso
+- Obesidade (grau I, II, III)
+
+## 🛠 Tecnologias Utilizadas
+
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [Node.js](https://nodejs.org/)
+- [VSCode](https://code.visualstudio.com/)
+
+## 🎯 Objetivos do Projeto
+
+- Compreender o fluxo de desenvolvimento de aplicativos móveis com React Native
+- Aprender a configurar e utilizar o Expo para testes e builds
+- Criar e gerar um APK funcional para Android
+- Praticar lógica de programação e manipulação de inputs
+
+## 🚀 Como Executar
+
+1. Clone este repositório:
    ```bash
-   npm install
-   ```
+   git clone https://github.com/seu-usuario/seu-repositorio.git
 
-2. Start the app
+Comando para instalar as dependencias: npm install
 
-   ```bash
-   npx expo start
-   ```
+Comando para iniciar o projeto: npx expo start
 
-In the output, you'll find options to open the app in a
+Ou seja preferir testar direto do PC: npx expo start --tunnel --reset-cache
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-# imc-calculator
