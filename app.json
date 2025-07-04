@@ -15,8 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.willianwa8.imccalculator"
+      }
+     
     },
     "web": {
       "bundler": "metro",
@@ -43,7 +43,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "74a8c33c-69e7-45c7-a531-688b2fa95c9c"
+        
       }
     }
   }
